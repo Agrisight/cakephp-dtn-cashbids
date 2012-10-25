@@ -31,10 +31,12 @@ You can then retrieve a bid with the following code:
     $bids = $this->DtnCashBid->find('all', array(
         'conditions' => array(
             'zip' => 48735,
-            'commodity' => 'corn'
+            'commodity' => 'corn',
+            'bid_type' => 'SPOT'
         )
     ));
 
 Zip **(required)** - The place to orient the local search around.  
-Commodity (optional) - Limit the search to this commodity name.
+Commodity (optional) - Limit the search to this commodity name.  
+Bid Type (optional) - If given, limit search to SPOT or NEW prices.
 

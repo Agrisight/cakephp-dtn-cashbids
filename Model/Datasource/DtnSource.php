@@ -106,6 +106,12 @@ class DtnSource extends DataSource {
             }
         }
 
+        if (! empty($conditions['bid_type'])) {
+            if (! in_array(strtoupper($conditions['bid_type']), explode('/', $record['COMMODITYNAME']))) {
+                return false;
+            }
+        }
+
         return true;
     }
     
