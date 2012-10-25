@@ -1,4 +1,4 @@
-cakephp-dtn-cashbids
-====================
+CakePHP DTN Cash Bids Plugin
+============================
 
-DTN Cash Bid API support for CakePHP
+This plugin enables access to the DTN Cash Bids API via a CakePHP plugin.
