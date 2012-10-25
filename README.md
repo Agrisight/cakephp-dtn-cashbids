@@ -35,6 +35,6 @@ You can then retrieve a bid with the following code:
         )
     ));
 
-Zip ( **required** ) - The place to orient the local search around.  
+Zip **(required)** - The place to orient the local search around.  
 Commodity (optional) - Limit the search to this commodity name.
 
