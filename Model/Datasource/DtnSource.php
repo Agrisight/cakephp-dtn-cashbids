@@ -68,7 +68,7 @@ class DtnSource extends DataSource {
  * @param array $query conditions, limit, etc
  * @return mixed `false` on failure, data on success
  */
-	public function read($model, $query = array()) {
+	public function read(Model $model, $query = array()) {
         $this->records = array();
         $request = array();
 
@@ -197,7 +197,7 @@ class DtnSource extends DataSource {
  *
  * @return null
  */
-	public function listSources() {
+	public function listSources($data = null) {
 		return null;
 	}
 
@@ -207,7 +207,7 @@ class DtnSource extends DataSource {
  * @param Model $Model
  * @return array
  */
-	public function describe(Model $Model) {
+	public function describe($model) {
 		if (isset($Model->_schema)) {
 			return $Model->_schema;
 		} else {
