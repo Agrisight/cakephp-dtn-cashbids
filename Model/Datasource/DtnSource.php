@@ -68,17 +68,17 @@ class DtnSource extends DataSource {
  * @param array $query conditions, limit, etc
  * @return mixed `false` on failure, data on success
  */
-	public function read(Model $model, $query = array(), $recursive = null) {
+	public function read(Model $model, $queryData = array(), $recursive = null) {
         $this->records = array();
         $request = array();
 
 		// If calculate() wants to know if the record exists. Say yes.
-		if ($query['fields'] == 'COUNT') {
+		if ($queryData['fields'] == 'COUNT') {
 			return array(array(array('count' => 1)));
 		}
 
-        if (!empty($query['conditions']['zip'])) {
-            $request['body']['zip'] = $query['conditions']['zip'];
+        if (!empty($queryData['conditions']['zip'])) {
+            $request['body']['zip'] = $queryData['conditions']['zip'];
         }
 
 		$response = $this->request($request);
@@ -89,7 +89,7 @@ class DtnSource extends DataSource {
 
         $result = array();
         foreach (Set::extract($response, 'CASHBIDREQUEST_ROW.{n}') as $record) {
-            if ($this->_matches($record, $query['conditions'])) {
+            if ($this->_matches($record, $queryData['conditions'])) {
                 if (! $this->_is_duplicate($record)) {
                     $result[] = array($model->alias => array_change_key_case($record, CASE_LOWER));
                 }
