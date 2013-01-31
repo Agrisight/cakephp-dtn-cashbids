@@ -68,7 +68,9 @@ class DtnSource extends DataSource {
  * @param array $query conditions, limit, etc
  * @return mixed `false` on failure, data on success
  */
-	public function read(Model $model, $query = array()) {
+	public function read(Model $model, $query = null) {
+        if (empty($query)) $query = array();
+
         $this->records = array();
         $request = array();
 
